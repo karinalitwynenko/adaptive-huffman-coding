@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Adaptive Huffman Coding - tree visualization</title>
+  <meta name="keywords" content=
+    "Adaptive Huffman coding, Dynamic Huffman coding, FGK, Faller-Gallager-Knuth, Vitter, adaptive coding,
+    Huffman coding implementation, Huffman tree, Huffman tree visualization">
+  
+  <meta name="description" content=
+    "An app visualizing Huffman tree structure generated using the method called Adaptive Huffman coding
+    (also known as Dynamic Huffman coding). The app uses user-provided input to process it as transmission,
+    adjusting the tree with every new character received. Encoding was implemented using two methods: FGK
+    (Faller-Gallager-Knuth) and Vitter algorithm. The user can switch between both implementations.">
+
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <nav class='color-primary'>
+    <img class='navbar-icon' src='graphic/tree.png'>
+    <span class='lab-name' href=''>Adaptive Huffman Coding</span>
+  </nav>
+  <main>
+
+    <div id='input-message-container'>
+      <div id='input-message-group'>
+
+        <textarea id='input-message'>Betty Botter bought a bit of butter&#10;But the bit of butter Betty Botter bought was bitter&#10;So Betty Botter bought a better bit of butter</textarea>
+        <div>
+          <from class='algorithm-radio-group'>
+            <label for="fkg-alg">
+              <input type="radio" id="fkg-alg" value="0" checked="true" name='tree-alg' onclick="setAlgorithm(this, 0)">
+              FGK algorithm
+            </label>
+
+            <label for="vitter-alg" style='margin-left: 5%'>
+              <input type="radio" id="vitter-alg" value="1" name='tree-alg' onclick="setAlgorithm(this, 1)">
+              Vitter algorithm
+            </label>
+          </from>
+          <button class='lab-button' id="encode-button" onclick="encode()">Encode</button>
+          <button class='lab-button' id="clear-button" onclick="clearCanvas()">Clear</button>
+        </div>
+      </div>
+    </div>
+    <div id='lab-container'>
+      <svg class='noselect' id='main-svg' viewBox="0 0 1000 1000" width="1000" height="1000"
+        xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class='zoom-btn noselect' id='zoom-in-btn'>+</div>
+      <div class='zoom-btn noselect' id='zoom-out-btn'>-</div>
+      <div id='codeword-label'></div>
+    </div>
+  </main>
+
+  <script src="js/huffman_tree.js"></script>
+  <script src="js/drawing.js"></script>
+  <script src="js/ui.js"></script>
+
+</body>
+<footer>ⓒ 2020 Karina Litwynenko </footer>
+
+</html>
